@@ -6,4 +6,11 @@ class Dollar(var amount: Int) {
         return Dollar(amount * multiplier)
     }
 
+    override fun equals(other: Any?): Boolean {
+        return amount == (other as Dollar).amount
+    }
+
+    override fun hashCode(): Int {
+        return amount
+    }
 }
