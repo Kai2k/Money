@@ -26,5 +26,10 @@ class MoneyTests {
         val six = Dollar(6)
         assertTrue(five == anotherFive)
         assertFalse(five == six)
+        val one = Franc(1)
+        val anotherOne = Franc(1)
+        assertTrue(one == anotherOne)
+        assertFalse(one == Franc(2))
+        assertFalse(five.equals(Franc(5)))
     }
 }
