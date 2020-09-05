@@ -1,6 +1,6 @@
 package com.mkodo.kentbeck
 
-abstract class Money(val amount: Int, val currency: String) {
+open class Money(val amount: Int, val currency: String) {
     companion object {
         fun dollar(amount: Int): Money {
             return Dollar(amount, "USD")
@@ -11,15 +11,21 @@ abstract class Money(val amount: Int, val currency: String) {
         }
     }
 
+    override fun toString(): String {
+        return "$currency : $amount"
+    }
+
     override fun equals(other: Any?): Boolean {
         val money = other as Money
         return amount == money.amount &&
-                other.javaClass == javaClass
+                currency == other.currency
     }
 
     override fun hashCode(): Int {
         return amount
     }
 
-    abstract fun times(multiplier: Int): Money
+    fun times(multiplier: Int): Money {
+        return Money(amount * multiplier, currency)
+    }
 }
