@@ -1,13 +1,13 @@
 package com.mkodo.kentbeck
 
-abstract class Money(val amount: Int) {
+abstract class Money(val amount: Int, val currency: String) {
     companion object {
         fun dollar(amount: Int): Money {
-            return Dollar(amount)
+            return Dollar(amount, "USD")
         }
 
         fun franc(amount: Int): Money {
-            return Franc(amount)
+            return Franc(amount, "CHF")
         }
     }
 

@@ -32,4 +32,10 @@ class MoneyTests {
         assertFalse(one == Money.franc(2))
         assertFalse(five == Money.franc(5))
     }
+
+    @Test
+    fun testCurrency() {
+        assertEquals("USD", Money.dollar(1).currency)
+        assertEquals("CHF", Money.franc(1).currency)
+    }
 }

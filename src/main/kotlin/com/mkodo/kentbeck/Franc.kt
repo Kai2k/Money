@@ -1,7 +1,7 @@
 package com.mkodo.kentbeck
 
-class Franc(amount: Int): Money(amount) {
+class Franc(amount: Int, currency: String): Money(amount, currency) {
     override fun times(multiplier: Int): Money {
-        return Franc(amount * multiplier)
+        return franc(amount * multiplier)
     }
 }
