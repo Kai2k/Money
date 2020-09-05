@@ -13,6 +13,13 @@ class MoneyTests {
     }
 
     @Test
+    fun testFrancMultiplication() {
+        val five = Franc(5)
+        assertEquals(Franc(10), five.times(2))
+        assertEquals(Franc(15), five.times(3))
+    }
+
+    @Test
     fun testEquality() {
         val five = Dollar(5)
         val anotherFive = Dollar(5)
