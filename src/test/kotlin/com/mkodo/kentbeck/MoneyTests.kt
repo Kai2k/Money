@@ -55,4 +55,12 @@ class MoneyTests {
     fun testReduceMoney() {
         assertEquals(Money.dollar(1), Bank().reduce(Money.dollar(1), "USD"))
     }
+
+    @Test
+    fun testReduceMoneyDifferentCurrency() {
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val result = bank.reduce(Money(2, "CHF"), "USD")
+        assertEquals(Money.dollar(1), result)
+    }
 }
