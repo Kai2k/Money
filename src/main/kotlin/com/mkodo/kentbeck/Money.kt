@@ -1,6 +1,6 @@
 package com.mkodo.kentbeck
 
-open class Money(val amount: Int, val currency: String) {
+open class Money(private val amount: Int, val currency: String): Expression {
     companion object {
         fun dollar(amount: Int): Money {
             return Money(amount, "USD")
@@ -28,4 +28,10 @@ open class Money(val amount: Int, val currency: String) {
     fun times(multiplier: Int): Money {
         return Money(amount * multiplier, currency)
     }
+
+    fun plus(addend: Money): Expression {
+        return Money(amount + addend.amount, currency)
+    }
 }
+
+interface Expression{}
