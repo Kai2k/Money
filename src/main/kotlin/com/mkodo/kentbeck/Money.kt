@@ -3,11 +3,11 @@ package com.mkodo.kentbeck
 open class Money(val amount: Int, val currency: String) {
     companion object {
         fun dollar(amount: Int): Money {
-            return Dollar(amount, "USD")
+            return Money(amount, "USD")
         }
 
         fun franc(amount: Int): Money {
-            return Franc(amount, "CHF")
+            return Money(amount, "CHF")
         }
     }
 
