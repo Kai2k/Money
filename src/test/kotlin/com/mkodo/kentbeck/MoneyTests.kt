@@ -63,4 +63,13 @@ class MoneyTests {
         val result = bank.reduce(Money(2, "CHF"), "USD")
         assertEquals(Money.dollar(1), result)
     }
+
+    @Test
+    fun testAdditionMixedCurrency() {
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val fiveBucks: Expression = Money.dollar(5)
+        val tenFrancs: Expression = Money.franc(10)
+        assertEquals(Money.dollar(10), bank.reduce(fiveBucks.plus(tenFrancs), "USD"))
+    }
 }

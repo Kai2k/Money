@@ -25,11 +25,11 @@ open class Money(val amount: Int, val currency: String): Expression {
         return amount
     }
 
-    fun times(multiplier: Int): Money {
+    fun times(multiplier: Int): Expression {
         return Money(amount * multiplier, currency)
     }
 
-    fun plus(addend: Money): Expression {
+    override fun plus(addend: Expression): Expression {
         return Sum(Money(amount, currency), addend)
     }
 
@@ -41,4 +41,5 @@ open class Money(val amount: Int, val currency: String): Expression {
 
 interface Expression{
     fun reduce(bank: Bank, to: String): Money
+    fun plus(addend: Expression): Expression
 }

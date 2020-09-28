@@ -1,7 +1,7 @@
 package com.mkodo.kentbeck
 
 class Bank {
-    private var rates: MutableMap<Pair<String, String>, Int> = mutableMapOf()
+    private var rates = mutableMapOf<Pair<String, String>, Int>()
 
     fun reduce(source: Expression, to: String): Money {
         return source.reduce(this, to)
@@ -12,6 +12,6 @@ class Bank {
     }
 
     fun rate(from: String, to: String): Int {
-        return rates.get(Pair(from, to)) ?: 1
+        return rates[Pair(from, to)] ?: 1
     }
 }
